@@ -6,6 +6,14 @@
 <script>
 var dt = new Date();
 document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear());
+fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
+            .then(function (response) {
+            return response.json();
+        })
+            .then(function (myJson) {
+            document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
+            document.querySelector("#level").innerHTML = myJson.response.level;
+        });
 </script>
 
 <style>
@@ -15,7 +23,7 @@ html{
   font-size: xxx-large;
 }
 #addInfo {
-  font-size: small;
+  font-size: xx-large;
 }
 .checkmark__circle {
   stroke-dasharray: 166;
@@ -34,7 +42,7 @@ html{
   stroke-width: 2;
   stroke: #fff;
   stroke-miterlimit: 10;
-  margin: 10% auto;
+  margin: auto;
   box-shadow: inset 0px 0px 0px #7ac142;
   animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
 }
@@ -69,19 +77,10 @@ html{
   <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
 </svg>
 
+<br>
+
 <div id="addInfo">
 <b>Additional Info:</b>
 <p><i>Levelpack:</i> "<span id="levelpack"></span>"</p>
-<p><i>Level:</i> "<span id="level"></span>"</p>
+<p><i>Level(s):</i> "<span id="level"></span>"</p>
 </div>
-
-<script>
-fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
-            .then(function (response) {
-            return response.json();
-        })
-            .then(function (myJson) {
-            document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
-            document.querySelector("#level").innerHTML = myJson.response.level;
-        });
-</script>
