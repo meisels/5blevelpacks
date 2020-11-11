@@ -6,13 +6,28 @@
 <script>
 var dt = new Date();
 document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear());
+fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
+            .then(function (response) {
+            return response.json();
+        })
+            .then(function (myJson) {
+            document.querySelector("#date").innerHTML = myJson.response.lastupdate;
+            document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
+            document.querySelector("#level").innerHTML = myJson.response.level;
+        });
 </script>
 
 <style>
-*{
+html{
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
   font-size: xxx-large;
+}
+#addInfo {
+  font-size: xx-large;
+}
+#recheck {
+  font-size: x-large;
 }
 .checkmark__circle {
   stroke-dasharray: 166;
@@ -68,4 +83,10 @@ document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-
 
 <br>
 
-<a href="index.html">Recheck</a>
+<div id="addInfo">
+<b>Previous Level (<span id="date"></span>):</b>
+<p><i>Levelpack:</i> <span id="levelpack"></span></p>
+<p><i>Level(s):</i> <span id="level"></span></p>
+</div>
+
+<div id="recheck"><a href="index.html">Recheck</a></div>
