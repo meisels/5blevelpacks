@@ -14,6 +14,9 @@ fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
             document.querySelector("#date").innerHTML = myJson.response.lastupdate;
             document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
             document.querySelector("#level").innerHTML = myJson.response.level;
+            if (myJson.response.lastupdate == (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear())) {
+                window.location.href = "done.html";
+            }
         });
 </script>
 
