@@ -1,7 +1,7 @@
 {
 	"response": {
 		"lastupdate": "11/13/2020",
-		"levelpack": "'<ERROR>'",
+		"levelpack": "'ERROR'",
 		"level": "'The system file 'hal.dll' was not found. Please reinstall Windows or you will be deleted.'"
 	}
 }
