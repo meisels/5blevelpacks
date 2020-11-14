@@ -13,7 +13,7 @@ fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
             .then(function (myJson) {
             if (("0"+(dt.getHours())).slice(-2) >= "22") {
                 document.querySelector("#textblock").innerHTML = "";
-                document.querySelector("#message").innerHTML = "If you're seeing this, send me an email at arimeisels3@gmail.com and tell me to HURRY UP AND MAKE A FREAKING LEVEL!!!!!!!!!!!!";
+                document.querySelector("#message").innerHTML = "If you're seeing this, send me a DM at meisels#1060 (Discord) and tell me to HURRY UP AND MAKE A FREAKING LEVEL!!!!!!!!!!!!";
             } else {
                 document.querySelector("#date").innerHTML = myJson.response.lastupdate;
                 document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
