@@ -11,9 +11,14 @@ fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
             return response.json();
         })
             .then(function (myJson) {
-            document.querySelector("#date").innerHTML = myJson.response.lastupdate;
-            document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
-            document.querySelector("#level").innerHTML = myJson.response.level;
+            if (("0"+(dt.getHours())).slice(-2) >= "22") {
+                document.querySelector("#textblock").innerHTML = "";
+                document.querySelector("#message").innerHTML = "If you're seeing this, send me an email at arimeisels3@gmail.com and tell me to HURRY UP AND MAKE A FREAKING LEVEL!!!!!!!!!!!!";
+            } else {
+                document.querySelector("#date").innerHTML = myJson.response.lastupdate;
+                document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
+                document.querySelector("#level").innerHTML = myJson.response.level;
+            }
             if (myJson.response.lastupdate == (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear())) {
                 window.location.href = "done.html";
             }
@@ -87,9 +92,12 @@ html{
 <br>
 
 <div id="addInfo">
+<span id="textblock">
 <b>Previous Level (<span id="date"></span>):</b>
 <p><i>Levelpack:</i> <span id="levelpack"></span></p>
 <p><i>Level(s):</i> <span id="level"></span></p>
+</span>
+<p><span id="message"></span></p>
 </div>
 
 <div id="recheck"><a href="index.html">Recheck</a></div>
