@@ -11,7 +11,7 @@ fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
             return response.json();
         })
             .then(function (myJson) {
-            if (("0"+(dt.getHours())).slice(-2) >= "22") {
+            if (("0"+(dt.getHours())).slice(-2) >= "21") {
                 document.querySelector("#textblock").innerHTML = "";
                 document.querySelector("#message").innerHTML = "If you're seeing this, send me an email at arimeisels@5blevels.com and tell me to HURRY UP AND MAKE A FREAKING LEVEL!!!!!!!!!!!!";
             } else {
