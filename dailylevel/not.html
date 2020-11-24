@@ -11,7 +11,7 @@ fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
             return response.json();
         })
             .then(function (myJson) {
-            if (("0"+(dt.getHours())).slice(-2) >= "18") {
+            if (("0"+(dt.getHours())).slice(-2) >= "21") {
 		var linkText = "arimeisels@5blevels.com";
 		var finalURL = linkText.link("mailto:arimeisels@5blevels.com?subject=Daily Level&body=MAKE A LEVEL NOW OR I'LL MURDER YOU!!!!1");
                 document.querySelector("#textblock").innerHTML = "";
