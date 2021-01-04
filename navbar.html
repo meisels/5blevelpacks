@@ -24,11 +24,12 @@
             
         <script>
             function resize() {
-                var x = document.getElementById("resize");
-                if (x.className === "navbar") {
-                    x.className += " responsive";
+                if (document.getElementById("resize").className == "navbar") {
+                    document.getElementById("resize").className += " responsive";
+                    document.getElementById("report").style = "";
                 } else {
-                    x.className = "navbar";
+                    document.getElementById("resize").className = "navbar";
+                    document.getElementById("report").style = "float:right";
                 }
             };
 
@@ -73,7 +74,7 @@
                 } else if (credits.indexOf("/" + parent.window.location.pathname.split('/')[1] + "/") !== -1) {
                     document.getElementById("credits").className = "active";
                 } else {
-                    document.getElementById("resize").innerHTML = document.getElementById("resize").innerHTML + "<a onclick='report()' id='report' class='active' style='float:right'>Click to report missing NavBar entry</a>";
+                    document.getElementById("resize").innerHTML += "<a onclick='report()' id='report' class='active' style='float:right'>Click to report missing NavBar entry</a>";
                 }
             };
             
