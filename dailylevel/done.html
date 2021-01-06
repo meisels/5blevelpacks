@@ -11,6 +11,17 @@
     <body>
         <p>Date: <span id="datetime"></span></p>
         
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmarkCircle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmarkCheck" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+        <br>
+        <div id="addInfo">
+            <b>Level Info:</b>
+            <p><i>Levelpack:</i> <span id="levelpack"></span></p>
+            <p><i>Level(s):</i> <span id="level"></span></p>
+        </div>
+        
         <script>
             var dt = new Date();
             document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear());
@@ -20,7 +31,7 @@
             })
                 .then(function (myJson) {
                 if (myJson.response.lastupdate != (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear())) {
-                    //window.location.href = "not.html";
+                    window.location.href = "not.html";
                 }
                 document.querySelector("#levelpack").innerHTML = myJson.response.levelpack;
                 document.querySelector("#level").innerHTML = myJson.response.level;
@@ -87,16 +98,5 @@
                 height:65px;
             }
         </style>
-        
-        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="checkmarkCircle" cx="26" cy="26" r="25" fill="none" />
-            <path class="checkmarkCheck" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-        </svg>
-        <br>
-        <div id="addInfo">
-            <b>Level Info:</b>
-            <p><i>Levelpack:</i> <span id="levelpack"></span></p>
-            <p><i>Level(s):</i> <span id="level"></span></p>
-        </div>
     </body>
 </html>

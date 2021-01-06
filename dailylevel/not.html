@@ -11,6 +11,21 @@
     <body>
         <p>Date: <span id="datetime"></span></p>
         
+        <svg class="xMark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="xMarkCircle" cx="26" cy="26" r="25" fill="none" />
+            <path class="xMarkCheck" fill="none" d="M16 16 36 36 M36 16 16 36" />
+        </svg>
+        <br>
+        <div id="addInfo">
+            <span id="textblock">
+                <b>Previous Level (<span id="date"></span>):</b>
+                <p><i>Levelpack:</i> <span id="levelpack"></span></p>
+                <p><i>Level(s):</i> <span id="level"></span></p>
+            </span>
+            <p><span id="message"></span></p>
+        </div>
+        <div id="recheck"><a href="index.html">Recheck</a></div>
+        
         <script>
             var dt = new Date();
             document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear());
@@ -98,20 +113,5 @@
                 height:65px;
             }
         </style>
-        
-        <svg class="xMark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="xMarkCircle" cx="26" cy="26" r="25" fill="none" />
-            <path class="xMarkCheck" fill="none" d="M16 16 36 36 M36 16 16 36" />
-        </svg>
-        <br>
-        <div id="addInfo">
-            <span id="textblock">
-                <b>Previous Level (<span id="date"></span>):</b>
-                <p><i>Levelpack:</i> <span id="levelpack"></span></p>
-                <p><i>Level(s):</i> <span id="level"></span></p>
-            </span>
-            <p><span id="message"></span></p>
-        </div>
-        <div id="recheck"><a href="index.html">Recheck</a></div>
     </body>
 </html>
