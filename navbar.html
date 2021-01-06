@@ -26,19 +26,16 @@
             function resize() {
                 if (document.getElementById("resize").className == "navbar") {
                     document.getElementById("resize").className += " responsive";
-                    document.getElementById("report").style = "";
+                    if (document.getElementById("report")) {
+                        document.getElementById("report").style = "";
+                    }
                 } else {
                     document.getElementById("resize").className = "navbar";
-                    document.getElementById("report").style = "float:right";
+                    if (document.getElementById("report")) {
+                        document.getElementById("report").style = "float:right";                        
+                    }
+
                 }
-            };
-
-            var iframe = parent.document.getElementById("iframe");
-
-            setInterval(resizeFrame,1);
-            
-            function resizeFrame() {
-                iframe.style.height = String(iframe.contentWindow.document.body.scrollHeight + 17) + "px";
             };
 
             var home = ["/", "/dailylevel/"];
@@ -46,7 +43,7 @@
             var contact = ["/contact/"];
             var about = ["/about/"];
             var other = ["/other/", "/bugs/"];
-            var credits = [];
+            var credits = ["/credits/"];
 
             if (home.indexOf(parent.window.location.pathname) !== -1) {
                 document.getElementById("home").className = "active";
@@ -82,14 +79,21 @@
                 window.open(encodeURI("mailto:ari@5blevels.com?subject=Missing NavBar Entry&body=The page " + parent.window.location.href + " is missing from the NavBar."));
             };
             
+            function resizeFrame() {
+                parent.document.getElementById("iframe").style.height = String(parent.document.getElementById("iframe").contentWindow.document.body.scrollHeight + 17) + "px";
+            };            
+            
             if (parent.window.location.pathname == "/navbar.html") {
                 //window.location.replace("about:blank");
+            } else {
+                setInterval(resizeFrame, 1);
             };
         </script>
         
         <style>
             * {
-                font-family: sans-serif;text-align: center;
+                font-family: sans-serif;
+                text-align: center;
             }
             
             a {
@@ -126,15 +130,16 @@
             }
             
             @media screen and (max-width: 905px) {
-                .navbar a:not(:first-child) {display: none;}
+                .navbar a:not(:first-child) {
+                    display: none;
+                }
                 .navbar a.icon {
                     float: right;
                     display: block;
                 }
-            }
-
-            @media screen and (max-width: 905px) {
-                .navbar.responsive {position: relative;}
+                .navbar.responsive {
+                    position: relative;
+                }
                 .navbar.responsive a.icon {
                     position: absolute;
                     right: 0;

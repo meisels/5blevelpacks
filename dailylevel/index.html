@@ -1,17 +1,14 @@
-<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-<title>BFDIA 5b - Daily Level</title>
-
 <script>
-var dt = new Date();
-fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
-            .then(function (response) {
-            return response.json();
-        })
-            .then(function (myJson) {
-            if (myJson.response.lastupdate == (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear())) {
-                window.location.href = "done.html";
-            } else {
-                window.location.href = "not.html";
-            }
-        });
+    var dt = new Date();
+    fetch("https://beta.5blevels.com/dailylevel/dailylevel.json")
+        .then(function (response) {
+        return response.json();
+    })
+        .then(function (myJson) {
+        if (myJson.response.lastupdate == (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear())) {
+            window.location.href = "done.html";
+        } else {
+            window.location.href = "not.html";
+        }
+    });
 </script>
