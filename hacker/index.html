@@ -1,5 +1,26 @@
-404
-<!-- Haha lol no -->
+<span id="text">Downloading</span>
 <script>
    window.location.replace("/hacker/install.exe");
+   var upto = 0;
+   setInterval(download,Math.random(100,1000));
+   function download() {
+      if (upto < 1000000) {
+         document.getElementById("text").innerHTML += ".";
+         upto++;
+         if (upto == 10000) {
+            alert("You win the nonexistent game for getting 10k dots on your screen!");
+         };
+         if (upto == 100000) {
+            alert("Haha I lied! Now you win for getting 100k!");
+         };
+         if (upto == 1000000) {
+            alert("OK I give up. You win. I quit.");
+         };
+      };
+   };
 </script>
+<style>
+   * {
+      word-wrap: break-word;
+   }
+</style>
